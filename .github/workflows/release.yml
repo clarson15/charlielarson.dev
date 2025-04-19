@@ -35,7 +35,9 @@ jobs:
           REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
           BUILD_VERSION: ${{ env.next_version }}
-        run: ./build.sh
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
       
       - name: Label snapshot
         run: |
