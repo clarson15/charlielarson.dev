@@ -1,0 +1,48 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get next release version
+        id: get_version
+        run: |
+          if [ $(git tag | wc -l) -eq 0 ]; then
+            next_version="0.1.0"
+          else
+            latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+            IFS='.' read -r major minor patch <<< "${latest_tag#v}"
+            patch=$((patch + 1))
+            next_version="$major.$minor.$patch"
+          fi
+          echo "next_version=$next_version" >> $GITHUB_ENV
+          echo "Next version is $next_version"
+
+      - name: Run build script
+        env:
+          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+          BUILD_VERSION: ${{ env.next_version }}
+        run: ./build.sh
+      
+      - name: Label snapshot
+        run: |
+          git tag ${{ env.next_version }}
+          git push origin ${{ env.next_version }}
+
+      - name: Update stack
+        env:
+          PORTAINER_WEBHOOK: ${{ secrets.PORTAINER_WEBHOOK }}
+        run: |
+          curl -k -X POST $PORTAINER_WEBHOOK

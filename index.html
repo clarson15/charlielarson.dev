@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charlie Larson</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo">charlielarson.dev</a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <img src="images/charlie.jpg" alt="Profile Photo">
+            <div class="about-info">
+                <h1>Charlie</h1>
+                <p><strong>Manager - Software Engineering</strong></p>
+                <p>
+                    I'm a full stack engineer with a passion for leading teams and building software to create amazing
+                    products.
+                    I have over 7 years of experience in software development and have worked on a wide range of
+                    projects, from small desktop applications to large enterprise systems.
+                </p>
+                <p>
+                    That passion bleeds into my personal life as well. I have a long history of side projects and I'm
+                    running a small game development studio with
+                    a few friends with the goal of launching our first game on Steam in 2025.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Technical Skills</h2>
+            <div class="skills-grid" role="list">
+                <div>.NET</div>
+                <div>Angular</div>
+                <div>Docker</div>
+                <div>HTML/CSS</div>
+                <div>Typescript</div>
+                <div>Python</div>
+                <div>Unity</div>
+                <div>SQL</div>
+                <div>Git</div>
+                <div>AWS</div>
+                <div>CI/CD</div>
+                <div>Agile</div>
+                <div>Leadership</div>
+                <div>Node</div>
+                <div>C</div>
+                <div>C++</div>
+                <div>Embedded Systems</div>
+                <div>Kubernetes</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects <a href="/projects" class="heading-link">All Projects</a></h2>
+            <div class="project-list">
+                <div class="project-item" role="article">
+                    <a href="https://glophouselabs.com" class="project-link"
+                        aria-label="View Starlight Mining Company project">
+                        <h3>Starlight Mining Company</h3>
+                        <p>
+                            A real-time strategy tower defense game set in space, where players build bases, defend
+                            against
+                            incoming
+                            enemies, and mine starlight to continue their operations. Built in Unity and launching on
+                            Steam
+                            in 2025.
+                        </p>
+                        <p>
+                            <strong>Status:</strong> Near internal beta.
+                        </p>
+                    </a>
+                </div>
+                <div class="project-item" role="article">
+                    <a href="https://glophouselabs.com" class="project-link"
+                        aria-label="View Starlight Mining Company project">
+                        <h3>PiFarm: Raspberry Pi growbox automation</h3>
+                        <p>
+                            An open-source python project that uses a Raspberry Pi to automate a growbox. The project
+                            includes a web interface, sensor logging and graphing, and automated lighting controls.
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Charlie Larson. All Rights Reserved.</p>
+        <nav class="social-links" aria-label="Social media links">
+            <a href="https://github.com/clarson15" aria-label="GitHub profile">
+                <img src="images/github.png" alt="GitHub icon">
+            </a>
+            <a href="https://linkedin.com/in/charlie-larson" aria-label="LinkedIn profile">
+                <img src="images/linkedin.png" alt="LinkedIn icon">
+            </a>
+        </nav>
+    </footer>
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
