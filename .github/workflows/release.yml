@@ -31,6 +31,7 @@ jobs:
 
       - name: Run build script
         env:
+          REGISTRY: ${{ secrets.REGISTRY }}
           REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
           BUILD_VERSION: ${{ env.next_version }}
